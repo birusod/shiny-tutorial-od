@@ -11,4 +11,5 @@ Part I
 
  - Lesson 1: learning points
    - Basic shiny
-   - Creating app 
+   - Creating a reactive app 
+   - Git basics: create a repo, commit-pull-push, update branches
