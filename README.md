@@ -13,3 +13,7 @@ Part I
    - Basic shiny
    - Creating a reactive app 
    - Git basics: create a repo, commit-pull-push, update branches
+   
+ - Lesson II: learning points
+   - Basic UI (input, output)
+   - input costumzation
