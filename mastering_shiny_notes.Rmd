@@ -1,0 +1,87 @@
+---
+title: "MASTERING SHINY - Notes"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# MASTERING SHINY 
+## Hadley Wickham
+### 2020
+[Book](https://mastering-shiny.org/index.html)
+
+
+# 1. Packages: List of needed pacakges:
+
+"gapminder", "ggforce", "gh", "globals", "openintro", "profvis", 
+"RSQLite", "shiny", "shinycssloaders", "shinyFeedback", "shinythemes", "testthat", "thematic", "tidyverse", "vroom", "waiter", "xml2","zeallot" 
+ - install.packages(c(list of package))
+ 
+ - library(package)
+ 
+ - library(pacman)
+ 
+ - p_load(
+  gapminder, ggforce, gh, globals, openintro, profvis, RSQLite, shiny,
+  shinycssloaders, shinyFeedback, shinythemes, testthat, thematic,
+  tidyverse, vroom, waiter, xml2, zeallot)
+  
+  
+# 2. Shiny app:
+
+**There 2 ways to create a shiny app:**
+
+  - new dir + app.R file in 1 step: File > New Project > dir > Shiny Web Application 
+  - file > New file > app.r (app.R file ready, use boilerplate:  “shinyapp” +  Shift+Tab)y typing “shinyapp” and pressing Shift+Tab.
+
+
+
+**There are a few ways you can run this app:**
+
+  - Click the Run App (Figure 1.1) button in the document toolbar.
+  - Use a keyboard shortcut: Cmd/Ctrl + Shift + Enter.
+  - If Not in RStudio: 
+      - (source()) the whole document, or 
+      - call shiny::runApp() with the path to the dir containing app.R
+
+
+**To stop the app, choose one of these options:**
+
+  - Click the stop sign icon on the R console toolbar.
+  - Click on the console, then press Esc (Ctrl + C if using RStudio).
+  - Close the Shiny app window.
+  
+  
+# 3. Basic UI:
+
+**Shiny extension package:**
+
+A comprehensive, actively-maintained list of other packages  maintained by Nan Xiao can be found [here](https://github.com/nanxstats/awesome-shiny-extensions).
+
+
+### 3.1 Inputs
+
+- Common structure (for all :
+
+  - inputID: abcd_1234 (no space-dash-period-special char,  must be unique)
+  
+  - label: human-readable label
+  
+  - value: set default value
+  
+- When creating an input, I recommend supplying the *inputId* and *label* arguments by position, and all other arguments by name:
+```{r}
+sliderInput("age_id", "Patient age", value = 50, min = 0, max = 100)
+```
+
+
+- Examples: 
+
+  - Free text: *textInput()* - *passwordInput()* - *textAreaInput()*
+  - Numeric inputs: *numericInput()* - *sliderInput()*. [Customizing](https://shiny.rstudio.com/articles/sliders.html)
+  - Dates: *dateInput()* - *dateRangeInput()*. 
+  - Limited choices: *selectInput()* - *radioButtons()* - *checkboxInput()* - *checkboxGroupInput()*.
+  - File uploads: *fileInput()*
+  - Action buttons: *actionButton()* - *actionLink()*
+
+
