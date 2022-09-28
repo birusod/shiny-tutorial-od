@@ -16,4 +16,4 @@ Part I
    
  - Lesson II: learning points
    - Basic UI (input, output)
-   - input costumzation
+   - Input customization
