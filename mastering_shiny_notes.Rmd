@@ -85,3 +85,22 @@ sliderInput("age_id", "Patient age", value = 50, min = 0, max = 100)
   - Action buttons: *actionButton()* - *actionLink()*
 
 
+### 3.2 Outputs
+
+Outputs in the UI create placeholders, later filled by the server function. 
+
+Outputs take a unique ID as their first arg (outputId): ID "plot" => output$plot.
+
+Each output func on the front end is coupled with a render func in the back end.
+
+ There are three main types of output: text, tables, and plots. 
+
+ - Text: 
+  - *textOutput()* => *renderText()* 
+  - *verbatimTextOutput()*  => *renderPrint()*
+ 
+ - Tables: 2 options for displaying df tables:
+  - static (showing all): *tableOutput()* => *renderTable()* 
+  - dynamic (fixed # of rows w/ controls): *dataTableOutput()* => *renderDataTable()*
+- Plots: You can display any type of R graphic (base, ggplot2, or otherwise)      - *plotOutput()* => *renderPlot()*
+  - *plotlyOutput()* => *renderPlotly()*
