@@ -70,6 +70,7 @@ A comprehensive, actively-maintained list of other packages  maintained by Nan X
   - value: set default value
   
 - When creating an input, I recommend supplying the *inputId* and *label* arguments by position, and all other arguments by name:
+
 ```{r}
 sliderInput("age_id", "Patient age", value = 50, min = 0, max = 100)
 ```
@@ -87,20 +88,86 @@ sliderInput("age_id", "Patient age", value = 50, min = 0, max = 100)
 
 ### 3.2 Outputs
 
-Outputs in the UI create placeholders, later filled by the server function. 
+**Outputs** in the UI create placeholders, later filled by the server function. Outputs take a unique ID as their first arg (outputId): 
 
-Outputs take a unique ID as their first arg (outputId): ID "plot" => output$plot.
+ID "plot" => output$plot.
 
-Each output func on the front end is coupled with a render func in the back end.
-
- There are three main types of output: text, tables, and plots. 
+Each output func on the front end is coupled with a render func in the back end. There are three main types of output: text, tables, and plots. 
 
  - Text: 
-  - *textOutput()* => *renderText()* 
-  - *verbatimTextOutput()*  => *renderPrint()*
+    - *textOutput()* => *renderText()* 
+    - *verbatimTextOutput()*  => *renderPrint()*
+    - Handy package: [reactable](https://glin.github.io/reactable/index.html) to costumize tables.
  
  - Tables: 2 options for displaying df tables:
-  - static (showing all): *tableOutput()* => *renderTable()* 
-  - dynamic (fixed # of rows w/ controls): *dataTableOutput()* => *renderDataTable()*
-- Plots: You can display any type of R graphic (base, ggplot2, or otherwise)      - *plotOutput()* => *renderPlot()*
-  - *plotlyOutput()* => *renderPlotly()*
+    - static (showing all): *tableOutput()* => *renderTable()* 
+    - dynamic (fixed # of rows w/ controls): *dataTableOutput()* => *renderDataTable()*
+  
+- Plots: You can display any type of R graphic:
+    - base, ggplot2: *plotOutput()* => *renderPlot()*
+    - Plotly: *plotlyOutput()* => *renderPlotly()*
+    
+  
+  
+# 4. Basic reactivity
+
+## 4.1 The server function (input, output, session)
+
+ - Input:
+    - The `input` argument is a list-like object that contains all the input data sent from the browser, named according to the input ID.
+    - `input` objects are read-only. If you attempt to modify an input inside the server function, you’ll get an error.
+    - important: `input` is selective about who is allowed to read it. To read from an input, you must be in a reactive context created by a function like `renderText()` or `reactive()`.
+
+ - Output:
+    - `output` is also a list-like object named according to the output ID. 
+    - The main difference is that you use it for sending output instead of receiving input. 
+    - You always use the output object in concert with a render function, as in:
+    
+
+
+
+```{r}
+ui <- fluidPage(
+  textOutput("greeting")
+)
+
+server <- function(input, output, session){
+  output$greeting -> renderText('Hello')
+}
+
+```
+
+Important:
+
+ - The ID is quoted in the UI, but not in the server.
+ - The render function does two things:
+    - sets up a special reactive context that automatically tracks what inputs the output uses.
+    - converts the output of your R code into HTML suitable for display on a web page.
+ - Like the input, the output is picky about how you use it. You’ll get an error if:
+    - You forget the render function: `output$greeting <- "Hello"`
+    - You attempt to read from an output: ` message("The greeting is ", output$greeting)`
+    
+## 4.2 Reactive programming
+
+ - Imperative vs declarative programming
+    - Imperative progr: specific command, carried out immediately (loading data, wranfling, plotting, saving...)
+    - Decrative progr: higher-level goals or important constraints (shiny)
+ - Laziness: app wont run if mispelling (ne error flag)! Double check that your UI and server functions are using the same identifiers.
+ - The reactive graph: *gtg* has a reactive dependency on *name*. see reactlog (ch14)
+ - Reactive expressions: tool that reduces duplication in your reactive code by introducing additional nodes into the reactive graph `rct_expr()`.
+ - Execution order:
+    - The order in which reactive code is run is determined only by the reactive graph, not by its layout in the server function.
+    - Make sure that reactive expressions and outputs only refer to things defined above, not below11. This will make your code easier to understand.
+ 
+## 4.3 Reactive expressions
+
+  - **producers** will refer to reactive inputs and expressions, 
+  - **consumers** will refer to reactive expressions and outputs
+
+### 4.3.1 Motivation
+
+
+
+## 4.4 Controlling timing of evaluation
+
+## 4.5 Observers

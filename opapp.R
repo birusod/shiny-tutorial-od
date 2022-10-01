@@ -1,5 +1,6 @@
 library(shiny)
 library(tidyverse)
+library(reactable)
 library(lubridate)
 library(plotly)
 library(skimr)
@@ -30,6 +31,8 @@ ui <- fluidPage(
   # Table
   tableOutput('static'),
   dataTableOutput('dynamic'),
+  reactableOutput('reactbl1'),
+  reactableOutput('reactbl2'),
   
   # Plots
   plotOutput('base'),
@@ -70,9 +73,44 @@ server <- function(input, output, session) {
     df, options = list(pageLength = 8)
   )
   
+  output$reactbl1 <- renderReactable({
+    df |> 
+      reactable(
+        searchable = TRUE,
+        striped = TRUE,
+        highlight = TRUE,
+        bordered = TRUE,
+        compact = TRUE,
+        theme = reactableTheme(
+          borderColor = "dodgerblue",
+          stripedColor = "#f6f8fa",
+          highlightColor = "crimson",
+          cellPadding = "8px 6px",
+          style = list(fontFamily = "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"),
+          searchInputStyle = list(width = "100%")
+        )
+      )
+  })
+  
+  output$reactbl2 <- renderReactable({
+    df |> 
+      reactable(
+        searchable = TRUE,
+        striped = TRUE,
+        highlight = TRUE,
+        bordered = TRUE,
+        compact = TRUE,
+        columns = list(
+          species = colDef(
+            name = 'Species', width = 170, sticky = "left",
+            style = list(borderRight = "1px solid #eee"),
+            headerStyle = list(borderRight = "1px solid #eee",
+                               backgroundColor = "#f7f7f7")))
+      )
+  })
   
   output$base <- renderPlot({
-    plot(df$bill_length_mm, df$body_mass_g)
+    plot(1:10, bg = 'cyan', cex = 3, col = 'red', pch=19)
   })
   
   output$ggp <- renderPlot({
