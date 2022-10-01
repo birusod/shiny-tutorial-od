@@ -165,9 +165,55 @@ Important:
   - **consumers** will refer to reactive expressions and outputs
 
 ### 4.3.1 Motivation
+  - compare two simulated datasets with a plot and a hypothesis test. 
+  - create 2 costum functions to sue: `freqpoly()` and `t_test()` saved in `help4func1.R`
+  - visualise the 2 dist and compare means and summarises the results with a string
+
+### 4.3.2 The app: `app4rctexpr.R`
+
+### 4.3.3 The reactive graph
+
+the graph is very dense: almost every input is connected directly to every output. This creates two problems
+
+  - hard to understand because there are so many connections
+  - inefficient because it does more work than necessary
+  
+these issues can fix all these problems by using reactive expressions to pull out repeated computation
+
+### 4.3.4 Simplifying the graph
+
+  - The “**rule of three**” of programming: whenever you copy and paste something three times, you should figure out how to reduce the duplication (typically by writing a function).
+  - In Shiny, however, I think you should consider the rule of one: whenever you copy and paste something once, you should consider extracting the repeated code out into a reactive expression.
 
 
+```{r}
+server <- function(input, output, session) {
+  x1 <- reactive(rnorm(input$n1, input$mean1, input$sd1))
+  x2 <- reactive(rnorm(input$n2, input$mean2, input$sd2))
 
-## 4.4 Controlling timing of evaluation
+  output$hist <- renderPlot({
+    freqpoly(x1(), x2(), binwidth = input$binwidth, xlim = input$range)
+  }, res = 96)
+
+  output$ttest <- renderText({
+    t_test(x1(), x2())
+  })
+}
+```
+
+In the server function below we refactor the existing code to pull out the repeated code into two new reactive expressions, x1 and x2, which simulate the data from the two distributions. To create a reactive expression, we call reactive() and assign the results to a variable. To later use the expression, we call the variable like it’s a function.
+
+### 4.3.5 Why do we need reactive expressions?
+
+When you first start working with reactive code, you might wonder why we need reactive expressions. Why can’t you use your existing tools for reducing duplication in code: creating new variables and writing functions? Unfortunately neither of these techniques work in a reactive environment.
+
+
+## 4.4 Controlling timing of evaluation: `app4tmg.R`
+
+### 4.4.1 Timed invalidation
+
+`reactiveTimer()` is a reactive expression that has a dependency on a hidden input: the current time. You can use a `reactiveTimer()` when you want a reactive expression to invalidate itself more often than it otherwise would.
+
+### 4.4.2 On click
 
 ## 4.5 Observers
