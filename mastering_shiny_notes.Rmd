@@ -1,5 +1,5 @@
 ---
-title: "MASTERING SHINY - Notes"
+title: "MASTERING SHINY - BASICS"
 output: html_notebook
 editor_options: 
   chunk_output_type: inline
@@ -99,9 +99,10 @@ Each output func on the front end is coupled with a render func in the back end.
     - *verbatimTextOutput()*  => *renderPrint()*
     - Handy package: [reactable](https://glin.github.io/reactable/index.html) to costumize tables.
  
- - Tables: 2 options for displaying df tables:
+ - Tables: options for displaying df tables:
     - static (showing all): *tableOutput()* => *renderTable()* 
     - dynamic (fixed # of rows w/ controls): *dataTableOutput()* => *renderDataTable()*
+    - reactable: (costumizable): `reactableOutput()` => `renderReactable()`
   
 - Plots: You can display any type of R graphic:
     - base, ggplot2: *plotOutput()* => *renderPlot()*
@@ -214,6 +215,47 @@ When you first start working with reactive code, you might wonder why we need re
 
 `reactiveTimer()` is a reactive expression that has a dependency on a hidden input: the current time. You can use a `reactiveTimer()` when you want a reactive expression to invalidate itself more often than it otherwise would.
 
-### 4.4.2 On click
+### 4.4.2 On click 
+ - `actionButton()`: x1() and x2() will update when we click the simulate button, but they’ll also continue to update when lambda1, lambda2, or n change. 
+ - `eventReactive()`: 
+    - used to replace the existing dependencies, not add to them.
+    - x1 and x2 no longer have a reactive dependency on lambda1, lambda2, and n: changing their values will not trigger computation.
 
-## 4.5 Observers
+## 4.5 Observers: see app4svr.R
+
+  - `observeEvent()`: important debugging tool
+  - Use an **observer** to execute actions:
+    - saving a file to a shared network drive, 
+    - sending data to a web API, 
+    - updating a database, or 
+    - printing a debugging message to the console (most commonly)
+  - There are multiple ways to create an observer: (2 arguments)
+    - `eventExpr()`: input or expression to take a dependency on.
+    - `handlerExpr()`: code that will be run. 
+  - For example, the following modification to `server()` means that every time that *name* is updated, a message will be sent to the console.
+  - 2 important differences between `observeEvent()` and `eventReactive()`:
+    - You don’t assign the result of `observeEvent()` to a variable, 
+    - You can’t refer to it from other reactive consumers.
+Observers and outputs are closely related. You can think of outputs as having a special side-effect: updating the HTML in the user’s browser. 
+
+
+
+# 5. Case study: ER injuries `app4eri.R`
+
+Exploring data from the National Electronic Injury Surveillance System (NEISS), collected by the Consumer Product Safety Commission. 
+
+This is a long-term study that records all accidents seen in a representative sample of hospitals in the United States. 
+
+More about this dataset [here](https://github.com/hadley/neiss).
+
+Each row represents a single accident with 10 variables:
+
+  - trmt_date: iadmission date.
+  - 3 demogr: age, sex, and race 
+  - body_part: location of the injury on the body 
+  - location: place where the accident occurred (like home or school).
+  - diag: basic diagnosis of the injury (like fracture or laceration).
+  - prod_code: is the primary product associated with the injury.
+  - weight: statistical weight (estimated # people who would suffer this injury in US.
+  - narrative: is a brief story about how the accident occurred.
+  

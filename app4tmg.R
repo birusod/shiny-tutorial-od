@@ -26,7 +26,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  
+  ### Using reactiveTimer()
   # timer <- reactiveTimer(2000) # 500 ms => plot will update twice a second
   # x1 <- reactive({
   #   timer()
@@ -37,14 +37,23 @@ server <- function(input, output, session) {
   #   rnorm(input$n, input$lambda2)}
   # )
   
-  x1 <- reactive({
-    input$sim
-    rnorm(input$n, input$lambda1)}
-  )
-  x2 <- reactive({
-    input$sim
-    rnorm(input$n, input$lambda2)}
-  )
+  ### Using actionButton():  click on simulate button updates x1() and x2()
+  # x1 <- reactive({
+  #   input$sim
+  #   rnorm(input$n, input$lambda1)}
+  # )
+  # x2 <- reactive({
+  #   input$sim
+  #   rnorm(input$n, input$lambda2)}
+  # )
+  
+  ### Using eventReactive(): 
+  x1 <- eventReactive(input$sim, {
+    rnorm(input$n, input$lambda1)
+  })
+  x2 <- eventReactive(input$sim, {
+    rnorm(input$n, input$lambda2)
+  })
   
   output$hist <- renderPlot({
     freqpoly(x1(), x2(), binwidth = 1, xlim = c(0, 40))
