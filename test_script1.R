@@ -44,3 +44,51 @@ tst_func <- function(dat1, dat2){
 
 freqpoly(x1, x2)
 cat(tst_func(dat1, dat2))
+
+
+m <- mtcars |> rownames_to_column(var = 'cars') |> tibble()
+
+d <- read_csv('neiss/injuries_2017.csv') |> filter(prod1 == 649) ;
+d |> select(2:4, 7:8) |> 
+  count(diag)
+
+d |> select(2:4, 7:8) |> 
+  head(50) |> 
+  mutate(diag = fct_infreq(diag)) |> 
+  count(diag)
+
+d |> select(2:4, 7:8) |> 
+  head(50) |> 
+  mutate(diag = fct_lump_n(diag, 3)) |> 
+  count(diag)
+
+
+d |> select(2:4, 7:8) |> 
+  head(50) |> 
+  mutate(diag = fct_lump_min(diag, 3)) |> 
+  count(diag)
+
+d |> select(2:4, 7:8) |> 
+  head(50) |> 
+  mutate(diag = fct_lump_prop(diag, .1)) |> 
+  count(diag)
+
+d |> select(2:4, 7:8) |> 
+  head(50) |> 
+  mutate(diag = fct_lump_lowfreq(diag)) |> 
+  count(diag)
+
+
+d |> 
+  mutate(diag = fct_lump(fct_infreq(diag), 5)) |> 
+  group_by(diag) |> 
+  summarise(tot = as.integer(sum(weight)))
+
+
+mytop5 <- function(df, var, n = 5){
+  df |> 
+    mutate({{var}} := fct_lump(fct_infreq({{var}}), n = n)) |> 
+    group_by({{var}}) |> 
+    summarise(tot = as.integer(sum(weight)))
+}
+mytop5(d, diag)

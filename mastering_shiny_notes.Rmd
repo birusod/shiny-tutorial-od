@@ -259,3 +259,9 @@ Each row represents a single accident with 10 variables:
   - weight: statistical weight (estimated # people who would suffer this injury in US.
   - narrative: is a brief story about how the accident occurred.
   
+
+
+Lessons learned:
+ - using a custom function for repeated data manipulation `mytop5()`.
+ - using `forcats` functions to manipulate categorical data
+ 
