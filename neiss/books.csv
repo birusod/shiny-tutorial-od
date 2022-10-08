@@ -1,0 +1,96 @@
+format,pubID,date,pages,prSize_k,price,language,checkout
+Trade paperback,CHP,9/22/85,188,10,8.99,English,TRUE
+Trade paperback,CHP,7/23/82,256,35,11.99,English,FALSE
+Graphic,ESP,3/24/89,85,3,23.99,English,TRUE
+Hardcover,ESP,4/24/79,704,15,27.99,French,FALSE
+Trade paperback,ESP,8/25/91,645,36,12.5,French,TRUE
+Hardcover,ESP,5/18/79,401,10,21.5,English,TRUE
+Board book,CHP,5/8/87,13,10,6.99,English,TRUE
+Paperback,CHP,11/6/87,22,15,7.99,French,TRUE
+Board book,CHP,5/27/88,12,18,6.99,English,FALSE
+Paperback,CHP,10/14/88,20,18,7.99,English,TRUE
+Board book,CHP,10/10/86,12,8,6.99,English,FALSE
+Paperback,CHP,4/3/87,20,10,7.99,French,TRUE
+Board book,CHP,7/10/87,11,10,6.99,French,TRUE
+Paperback,CHP,1/8/88,15,17,7.99,English,TRUE
+Mass market paperback,SSC,9/20/91,368,37,9.5,English,TRUE
+Hardcover,ESP,2/19/88,434,25,21.5,French,FALSE
+Mass market paperback,ESP,3/17/89,381,50,8.99,English,TRUE
+Hardcover,ESP,3/6/87,404,2,18.5,English,TRUE
+Trade paperback,CHP,4/24/88,404,7,11.99,English,TRUE
+Hardcover,ESP,3/2/90,706,6,21.5,French,TRUE
+Mass market paperback,ESP,12/21/90,651,15,8.99,French,FALSE
+Hardcover,PP,12/16/83,480,4,28.99,English,TRUE
+Trade paperback,PP,3/29/85,480,5,15.99,English,FALSE
+Mass market paperback,ESP,1/5/79,575,4,8.99,French,TRUE
+Mass market paperback,ESP,2/25/83,390,29,8.99,English,TRUE
+Paperback,CHP,3/6/81,28,18,7.99,English,TRUE
+Paperback,CHP,5/2/86,31,25,10.99,English,TRUE
+Board book,CHP,6/3/88,16,55,5.99,French,TRUE
+Hardcover,PP,9/29/78,640,3,26.99,French,TRUE
+Trade paperback,PP,1/12/79,631,5,15.99,English,TRUE
+Hardcover,ESP,11/5/82,493,20,27.99,English,TRUE
+Trade paperback,ESP,5/27/83,470,40,12.5,French,TRUE
+Hardcover,PP,6/9/89,337,16,29.99,English,TRUE
+Trade paperback,PP,7/15/90,385,20,16.99,English,TRUE
+Hardcover,CHP,8/9/85,222,3,19.99,English,TRUE
+Trade paperback,CHP,7/25/86,218,10,11.99,French,TRUE
+Hardcover,ESP,5/15/87,432,25,27.99,French,TRUE
+Mass market paperback,ESP,11/25/88,341,45,8.99,English,TRUE
+Mass market paperback,SSC,7/25/86,380,25,9.5,English,TRUE
+Hardcover,PP,3/15/91,368,2,48,French,FALSE
+Hardcover,CHP,11/15/91,324,3,22.99,English,TRUE
+Trade paperback,CHP,9/18/92,324,8,11.99,English,FALSE
+Mass market paperback,SSC,3/5/82,362,13,9.5,French,TRUE
+Mass market paperback,ESP,7/26/81,311,22,8.99,French,TRUE
+Hardcover,PP,9/12/80,390,4,32.99,English,TRUE
+Graphic,ESP,10/5/90,192,4,23.99,English,TRUE
+Hardcover,PP,8/18/78,394,6,30.99,French,TRUE
+Trade paperback,PP,4/18/80,371,6,15.99,English,TRUE
+Hardcover,ESP,7/10/81,384,5,22.99,English,TRUE
+Mass market paperback,ESP,9/24/82,414,12,8.99,English,TRUE
+Hardcover,PP,9/8/78,384,10,27.99,French,TRUE
+Trade paperback,PP,9/7/79,356,16,12.5,French,TRUE
+Hardcover,ESP,2/20/87,656,32,21.5,English,TRUE
+Mass market paperback,ESP,10/21/88,792,78,8.99,English,TRUE
+Hardcover,ESP,4/1/83,373,3,18.5,French,TRUE
+Trade paperback,ESP,2/29/84,373,42,11.99,English,TRUE
+Hardcover,ESP,1/3/92,1218,40,21.5,English,TRUE
+Mass market paperback,SSC,4/15/88,336,35,9.5,English,TRUE
+Hardcover,ESP,7/25/80,105,14,27.99,French,FALSE
+Trade paperback,ESP,7/3/81,105,20,12.5,French,TRUE
+Hardcover,PP,3/1/91,400,8,23.99,English,FALSE
+Trade paperback,PP,5/15/92,387,8,15.99,English,TRUE
+Hardcover,ESP,1/6/89,437,7,21.5,French,TRUE
+Trade paperback,ESP,5/18/90,458,11,12.5,English,TRUE
+Hardcover,ESP,2/16/90,531,9,21.5,English,TRUE
+Trade paperback,ESP,9/14/90,520,15,12.5,English,TRUE
+Hardcover,ESP,7/3/92,340,35,18.5,French,TRUE
+Hardcover,ESP,11/15/85,485,12,27.99,French,TRUE
+Trade paperback,ESP,12/5/86,469,20,12.5,English,TRUE
+Hardcover,ESP,2/22/91,421,10,21.5,English,TRUE
+Mass market paperback,ESP,4/3/92,398,18,8.99,French,TRUE
+Hardcover,PP,1/13/84,598,9,23.99,French,TRUE
+Trade paperback,PP,1/4/85,598,12,15.99,English,TRUE
+Hardcover,ESP,2/10/84,293,10,22.99,English,TRUE
+Mass market paperback,ESP,9/27/85,357,25,8.99,French,TRUE
+Graphic,ESP,12/21/82,88,3,23.99,English,TRUE
+Mass market paperback,ESP,7/13/79,452,15,8.99,English,TRUE
+Graphic,ESP,9/15/78,187,8,23.99,English,TRUE
+Hardcover,ESP,2/25/83,819,25,21.5,French,TRUE
+Mass market paperback,ESP,7/19/85,672,71,8.99,French,TRUE
+Trade paperback,ESP,4/14/86,784,50,12.5,English,TRUE
+Mass market paperback,SSC,2/8/85,255,20,9.5,English,TRUE
+Hardcover,ESP,5/14/91,1296,30,35.84,French,TRUE
+Trade paperback,ESP,8/25/92,1296,30,13.46,English,TRUE
+Mass market paperback,SSC,12/11/81,381,11,9.5,English,TRUE
+Hardcover,ESP,6/2/78,277,15,27.99,English,FALSE
+Mass market paperback,ESP,2/16/79,264,25,8.99,French,TRUE
+Hardcover,ESP,8/28/87,292,40,21.5,French,FALSE
+Mass market paperback,ESP,4/8/88,280,40,8.99,English,TRUE
+Mass market paperback,SSC,2/14/83,423,16,9.5,English,TRUE
+Hardcover,PP,8/14/92,207,2,29.99,French,TRUE
+Hardcover,PP,12/17/82,288,3,29.99,French,FALSE
+Trade paperback,PP,12/9/83,295,7,16.99,English,TRUE
+Hardcover,ESP,12/12/86,356,18,20.99,English,FALSE
+Mass market paperback,ESP,11/20/87,338,26,8.99,French,FALSE

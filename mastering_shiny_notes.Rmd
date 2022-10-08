@@ -264,4 +264,7 @@ Each row represents a single accident with 10 variables:
 Lessons learned:
  - using a custom function for repeated data manipulation `mytop5()`.
  - using `forcats` functions to manipulate categorical data
+ - ui layout
+ 
+ 
  
