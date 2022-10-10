@@ -1,0 +1,16 @@
+---
+title: "MASTERING SHINY - SHINY IN ACTION"
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: inline
+---
+
+# MASTERING SHINY 
+## Hadley Wickham
+### 2020
+[Book](https://mastering-shiny.org/index.html)
+
+
+# 
