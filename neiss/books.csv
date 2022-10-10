@@ -1,4 +1,4 @@
-format,pubID,date,pages,prSize_k,price,language,checkout
+formattype,pubID,date,pages,prSize_k,price,language,checkout
 Trade paperback,CHP,9/22/85,188,10,8.99,English,TRUE
 Trade paperback,CHP,7/23/82,256,35,11.99,English,FALSE
 Graphic,ESP,3/24/89,85,3,23.99,English,TRUE

@@ -1,6 +1,7 @@
 library(shiny)
 library(tidyverse)
 library(lubridate)
+
 animals <- c("dog", "cat", "mouse", "bird")
 city <- c("Seattle", "Tacoma", "Bellevue", "Everret")
 dishes <- c("Egg", "Milk", "Bread", "Meatballs", "Cookies", "Juice")
